@@ -1,5 +1,70 @@
 ## Instagram-Challenge-Udemy-MySQL-Bootcamp
 
+# Social Media Database Schema
+
+This repository contains the database schema for a social media platform. The schema is designed to handle user information, photos, comments, likes, follows, tags, and their relationships. Below is a breakdown of the tables and their structures:
+
+## Tables
+
+### Users
+- **Columns**:
+    - `id`: Unique identifier for each user (Auto Incremented)
+    - `username`: User's unique username (255 characters, Not Null, Unique)
+    - `created_at`: Timestamp for user creation (Default: Current Timestamp)
+
+### Photos
+- **Columns**:
+    - `id`: Unique identifier for each photo (Auto Incremented)
+    - `image_url`: URL pointing to the image (255 characters, Not Null)
+    - `user_id`: Foreign key referencing the Users table (Not Null)
+    - `created_at`: Timestamp for photo creation (Default: Current Timestamp)
+
+### Comments
+- **Columns**:
+    - `id`: Unique identifier for each comment (Auto Incremented)
+    - `comment_text`: Text content of the comment (255 characters, Not Null)
+    - `photo_id`: Foreign key referencing the Photos table (Not Null)
+    - `user_id`: Foreign key referencing the Users table (Not Null)
+    - `created_at`: Timestamp for comment creation (Default: Current Timestamp)
+
+### Likes
+- **Columns**:
+    - `user_id`: Foreign key referencing the Users table (Not Null)
+    - `photo_id`: Foreign key referencing the Photos table (Not Null)
+    - `created_at`: Timestamp for like creation (Default: Current Timestamp)
+    - **Primary Key**: Composite key using user_id and photo_id to prevent duplicate likes
+
+### Follows
+- **Columns**:
+    - `follower_id`: Foreign key referencing the Users table (Not Null)
+    - `followee_id`: Foreign key referencing the Users table (Not Null)
+    - `created_at`: Timestamp for follow relationship creation (Default: Current Timestamp)
+    - **Primary Key**: Composite key using follower_id and followee_id to prevent duplicate follows
+
+### Tags
+- **Columns**:
+    - `id`: Unique identifier for each tag (Auto Incremented)
+    - `tag_name`: Name of the tag (255 characters, Unique)
+    - `created_at`: Timestamp for tag creation (Default: Current Timestamp)
+
+### Photo_Tags
+- **Columns**:
+    - `photo_id`: Foreign key referencing the Photos table (Not Null)
+    - `tag_id`: Foreign key referencing the Tags table (Not Null)
+    - **Primary Key**: Composite key using photo_id and tag_id to relate photos with tags
+
+## Relationships
+- **Users**:
+    - Photos: One-to-Many relationship (One user can have many photos)
+    - Comments: One-to-Many relationship (One user can make many comments)
+    - Likes: One-to-Many relationship (One user can like many photos)
+    - Follows: Many-to-Many relationship (Users can follow other users)
+
+- **Photos**:
+    - Comments: One-to-Many relationship (One photo can have many comments)
+    - Likes: One-to-Many relationship (One photo can have many likes)
+    - Tags: Many-to-Many relationship (Photos can have multiple tags)
+
 This repository contains SQL solutions for various analytics challenges faced by Instagram. Each challenge provides SQL queries to solve specific problems. Below is a brief overview of each challenge and its corresponding SQL solution:
 
 #### Challenge #1: Finding Oldest Users
