@@ -1,9 +1,5 @@
 ## Instagram-Challenge-Udemy-MySQL-Bootcamp
 
-# Social Media Database Schema
-
-This repository contains the database schema for a social media platform. The schema is designed to handle user information, photos, comments, likes, follows, tags, and their relationships. Below is a breakdown of the tables and their structures:
-
 ## Tables
 
 ### Users
@@ -66,6 +62,8 @@ This repository contains the database schema for a social media platform. The sc
     - Tags: Many-to-Many relationship (Photos can have multiple tags)
 
 This repository contains SQL solutions for various analytics challenges faced by Instagram. Each challenge provides SQL queries to solve specific problems. Below is a brief overview of each challenge and its corresponding SQL solution:
+
+## Challenges
 
 #### Challenge #1: Finding Oldest Users
 Identifies the 5 oldest users based on their registration date.
